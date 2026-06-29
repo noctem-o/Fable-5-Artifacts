@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>A single semiclassical exponent governs the exponentially small scales at bosonic configuration crossings</title>
+<script>
+  window.MathJax = {
+    tex: {
+      inlineMath: [['\\(', '\\)'], ['$', '$']],
+      displayMath: [['\\[', '\\]'], ['$$', '$$']],
+      processEscapes: true,
+      tags: 'none'
+    },
+    options: { skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'] }
+  };
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" id="MathJax-script" async></script>
+<style>
+  :root {
+    --bg: #fbfbf9;
+    --fg: #1a1a1a;
+    --muted: #555;
+    --rule: #d8d8d2;
+    --accent: #8a3324;
+    --table-head: #f0efe9;
+    --table-border: #cfcfc7;
+    --code-bg: #f2f1ec;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #16181c;
+      --fg: #e6e6e3;
+      --muted: #a6a6a0;
+      --rule: #34373d;
+      --accent: #d98a6a;
+      --table-head: #1e2127;
+      --table-border: #34373d;
+      --code-bg: #22252b;
+    }
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--fg);
+    font-family: "Charter", "Iowan Old Style", "Palatino Linotype", "Cambria", Georgia, serif;
+    font-size: 18px;
+    line-height: 1.62;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  .wrap {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 56px 24px 96px;
+  }
+  header.title-block {
+    text-align: center;
+    border-bottom: 2px solid var(--rule);
+    padding-bottom: 28px;
+    margin-bottom: 36px;
+  }
+  header.title-block h1 {
+    font-size: 1.72rem;
+    line-height: 1.28;
+    font-weight: 600;
+    margin: 0 0 18px;
+    letter-spacing: -0.01em;
+  }
+  header.title-block .author {
+    font-size: 1.08rem;
+    font-weight: 600;
+    margin: 0 0 6px;
+  }
+  header.title-block .meta {
+    font-style: italic;
+    color: var(--muted);
+    font-size: 0.96rem;
+    margin: 0;
+  }
+  h2 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin: 2.2em 0 0.6em;
+    padding-bottom: 0.22em;
+    border-bottom: 1px solid var(--rule);
+    letter-spacing: -0.01em;
+  }
+  h2#abstract {
+    border-bottom: none;
+    text-align: center;
+    font-size: 1.05rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-top: 0;
+  }
+  /* Style the abstract paragraph (first <p> after the abstract heading) */
+  h2#abstract + p {
+    font-size: 0.97rem;
+    color: var(--fg);
+    margin: 0 auto 1.4em;
+    max-width: 92%;
+    text-align: justify;
+  }
+  h3 { font-size: 1.08rem; font-weight: 600; margin: 1.8em 0 0.4em; }
+  p { margin: 0 0 1.05em; }
+  strong { font-weight: 600; }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  ol, ul { padding-left: 1.5em; }
+  li { margin: 0.3em 0; }
+  hr {
+    border: none;
+    border-top: 1px solid var(--rule);
+    margin: 2.4em 0;
+  }
+  code {
+    font-family: "SF Mono", "JetBrains Mono", "Consolas", ui-monospace, monospace;
+    font-size: 0.86em;
+    background: var(--code-bg);
+    padding: 0.12em 0.4em;
+    border-radius: 4px;
+  }
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 1.4em 0;
+    font-size: 0.92rem;
+  }
+  th, td {
+    border: 1px solid var(--table-border);
+    padding: 8px 11px;
+    text-align: left;
+    vertical-align: top;
+  }
+  thead th { background: var(--table-head); font-weight: 600; }
+  tbody tr:nth-child(even) td { background: rgba(128,128,128,0.05); }
+  /* References block: tighten the line spacing */
+  h2#references + p { font-size: 0.92rem; line-height: 1.5; color: var(--fg); }
+  /* MathJax display blocks: allow horizontal scroll on narrow screens instead of overflow */
+  mjx-container[display="true"] {
+    overflow-x: auto;
+    overflow-y: hidden;
+    max-width: 100%;
+    padding: 2px 0;
+  }
+  mjx-container { font-size: 1.02em !important; }
+  .render-note {
+    font-size: 0.82rem;
+    color: var(--muted);
+    text-align: center;
+    margin-top: 4em;
+    padding-top: 1.2em;
+    border-top: 1px solid var(--rule);
+    font-style: italic;
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="title-block">
+  <h1>A single semiclassical exponent governs the exponentially small scales at bosonic configuration crossings</h1>
+  <p class="author">George Gallagher</p>
+  <p class="meta">Manuscript draft prepared for submission to SciPost Physics — June 12, 2026</p>
+</header>
+<main>
+<h2 id="abstract">Abstract</h2>
+<p>We study avoided crossings between two competing bosonic
+configurations — distinct interacting sectors exchanged by a
+pair-transfer coupling — and show that all exponentially small scales of
+the problem are governed by a single semiclassical exponent: the minimal
+gap, the imaginary part of the exceptional point in the complexified
+drive plane, the peak fidelity susceptibility, and the convergence
+radius of the Schrieffer–Wolff expansion. The exponent is the instanton
+action of the lower sheet of the <span class="math inline">\(2\times
+2\)</span> matrix symbol at tuned double degeneracy, defined chart-free
+by the characteristic-variety condition <span
+class="math inline">\((h_A-E_c)(h_B-E_c)=|w(x,\chi)|^2\)</span>, and
+evaluated in closed form. We prove the law for the direct coupling
+matrix element and certify the spectral law numerically under a
+pre-registered, bracketed protocol across six landscapes and two
+coupling algebras, including a blind prediction at never-tested
+parameters accurate to <span class="math inline">\(10^{-5}\)</span>, and
+through a three-layer campaign of engineered well degeneracies
+establishing an instanton minimum rule. An exact Feshbach reduction
+identifies the certified quadrature as the literal symbol of an
+effective scalar Jacobi operator, yielding a concrete route to a full
+proof. The result is the discrete, configuration-coexistence counterpart
+of the rigorous theory of molecular predissociation widths, realized in
+a setting it has not addressed, with metrological observables it does
+not treat.</p>
+<hr />
+<h2 id="introduction">1. Introduction</h2>
+<p>Many-body quantum systems frequently organize themselves into
+competing <em>configurations</em>: collective structures of distinct
+character — spherical and deformed shapes in nuclei [1,2], normal and
+intruder shell-model spaces, distinct mean-field branches in interacting
+bosonic ensembles — which coexist over a range of parameters and
+exchange the role of ground state at a crossing. The rigorous
+understanding of such organization remains among the deep open problems
+of mathematical physics; Simon’s challenge to derive the shell model
+from first principles [3] is its emblem. Near a configuration crossing,
+the physically interesting quantities are uniformly <em>exponentially
+small</em> in the system size: the avoided-crossing gap, the parametric
+sensitivity of the spectrum, the analyticity radius of perturbation
+theory. Exponentially small quantities are precisely where uncontrolled
+numerics mislead and where semiclassical structure, when it exists, is
+most powerful.</p>
+<p>Two mature bodies of theory border this problem without entering it.
+Within a <em>single</em> collective sector, exponentially small
+tunneling splittings between symmetry-broken mean-field wells are
+classical material: in the Lipkin–Meshkov–Glick (LMG) model [1] the
+<span class="math inline">\(e^{-cN}\)</span> splitting follows from
+degenerate perturbation theory in coherent states [4], and instanton
+evaluations — including the discreteness correction <span
+class="math inline">\(s\to s+\tfrac12\)</span> to the prefactor [5] —
+date to the 1990s. In the continuum, the Helffer–Sjöstrand theory of
+multiple wells [6] and its descendant, the rigorous theory of molecular
+predissociation [7–10], establish that resonance <em>widths</em> of
+<span class="math inline">\(2\times2\)</span> systems of one-dimensional
+Schrödinger operators are exponentially small with exponents given by
+Agmon distances [11] of the degenerate metric <span
+class="math inline">\(\max(0,\min(V_1,V_2))\,dx^2\)</span> — the Agmon
+geometry of the lower symbol sheet — for off-diagonal couplings as
+general as first-order pseudodifferential operators [9]. Separately, an
+active debate concerns the metrological meaning of exceptional points
+(EPs) and the divergence of quantum Fisher information near them
+[12–16].</p>
+<p>This paper addresses the configuration-crossing problem these
+literatures bracket: <strong>two confining sectors of different particle
+content, coupled by pair transfer, tuned to double degeneracy</strong> —
+coexistence rather than decay, a gap rather than a width, on a discrete
+bosonic Fock chain rather than in continuum position space. Our
+contributions:</p>
+<ol type="1">
+<li><strong>A one-exponent law.</strong> The four scales above share the
+single exponent <span class="math inline">\(\mathcal{S}[H]\)</span>, the
+instanton action of the matrix symbol’s lower sheet at degeneracy, with
+a closed-form chart evaluation (Sec. 2–3). The familiar local correction
+action is demoted to a coordinate chart of this invariant; an earlier
+constant-coupling chart is falsified by measurement, and the invariant
+<em>retrodicts</em> that falsification as necessary.</li>
+<li><strong>One proven pillar.</strong> For the direct coupling matrix
+element we prove the Agmon law with an elementary discrete argument
+(Theorem 3), error <span
+class="math inline">\(\mathcal{O}(M^{2/3})\)</span> in the
+logarithm.</li>
+<li><strong>A certification standard.</strong> The spectral law is
+verified under pre-registration: closed-form predictions locked before
+measurement, two independent extrapolation models required to bracket
+them, extended-precision gaps to <span
+class="math inline">\(N=280\)</span> (<span
+class="math inline">\(\mathrm{gap}\sim10^{-38}\)</span>), and a strict
+cross-check blocker rule (Sec. 4). A blind test at never-touched
+parameters lands within <span
+class="math inline">\(10^{-5}\)</span>.</li>
+<li><strong>An instanton minimum rule.</strong> Through engineered
+degenerate landscapes we establish <span
+class="math inline">\(\Gamma=\min(S_1,S_2)\)</span> and identify a
+three-layer protection mechanism — coupling-induced repulsion detuning,
+zero-point detuning, and symmetric hybridization with sign-definite
+couplings (Sec. 5).</li>
+<li><strong>A proof skeleton.</strong> An exact Feshbach reduction maps
+the two-sector problem to a scalar Jacobi double well whose symbol
+<em>is</em> the certified quadrature, opening a route to the full
+theorem by predissociation-school methods (Sec. 6).</li>
+</ol>
+<h2 id="model-and-the-invariant">2. Model and the invariant</h2>
+<p>Sector <span class="math inline">\(B\)</span> contains <span
+class="math inline">\(M=N+2\)</span> bosons in two modes <span
+class="math inline">\((s,t)\)</span> with <span
+class="math display">\[H_B=\varepsilon\,
+n_t+\frac{g_2}{M}n_t^2+\frac{g_3}{M^2}n_t^3+\frac{g_4}{M^3}n_t^4-\frac{\kappa_B}{M}Q^2,\qquad
+Q=s^\dagger t+t^\dagger s,\]</span> sector <span
+class="math inline">\(A\)</span> contains <span
+class="math inline">\(N\)</span> bosons with <span
+class="math inline">\(H_A=\varepsilon_A
+n_t-\frac{\kappa_A}{N}Q_A^2\)</span>, and the sectors are coupled by
+pair transfer <span class="math inline">\(W=\omega\,(s^\dagger
+s^\dagger+t^\dagger t^\dagger)\)</span> in the even-<span
+class="math inline">\(n_t\)</span> parity sector. The full family is
+<span class="math inline">\(H(s)=\big(H_A\oplus(H_B+s)\big)+W\)</span>,
+with <span class="math inline">\(s\)</span> the drive tuned through the
+crossing. In interleaved ordering the matrix is pentadiagonal, enabling
+controlled inertia-bisection spectroscopy at arbitrary precision.</p>
+<p>With <span class="math inline">\(x=n_t/M\)</span> and conjugate phase
+<span class="math inline">\(\chi\)</span>, the principal matrix symbol
+is <span class="math display">\[h(x,\chi)=\begin{pmatrix} h_A &amp; w\\
+\bar w &amp; h_B+\bar s\end{pmatrix},\quad
+\begin{aligned}
+h_{A,B}&amp;=V_{A,B}(x)-2\kappa_{A,B}\,x(1-x)\,(1+\cos 2\chi),\\
+w(x,\chi)&amp;=\omega\big[(1-x)+x\,e^{2i\chi}\big],
+\end{aligned}\]</span> with <span class="math inline">\(V_B=\varepsilon
+x+g_2x^2+g_3x^3+g_4x^4\)</span>, <span
+class="math inline">\(V_A=\varepsilon_A x\)</span>. The <span
+class="math inline">\(\chi\)</span>-dependence of <span
+class="math inline">\(w\)</span> — forced by the operator content of
+<span class="math inline">\(t^\dagger t^\dagger\)</span>, which moves
+<span class="math inline">\(n_t\)</span> — is the structural point:
+under the barrier (<span class="math inline">\(\chi=i\lambda\)</span>),
+<span
+class="math display">\[|w(x,i\lambda)|^2=\omega^2\big[P(x)+R(x)\cosh
+2\lambda\big],\qquad P=(1-x)^2+x^2,\;R=2x(1-x).\]</span></p>
+<p><strong>Definition (invariant).</strong> <span
+class="math inline">\(\mathcal{S}[H]:=\lim_{M\to\infty}-\tfrac1M\log
+\mathrm{gap}_{\min}\)</span>, with the offset <span
+class="math inline">\(\bar s\)</span> and crossing energy <span
+class="math inline">\(E_c\)</span> fixed by double degeneracy of the
+dressed lower sheet. The candidate identity, the subject of this paper,
+is that <span class="math inline">\(\mathcal{S}[H]\)</span> equals <span
+class="math inline">\(\int_0^{x_*}\lambda(x)\,dx\)</span> along the path
+defined chart-free by <span
+class="math display">\[\big(h_A-E_c\big)\big(h_B+\bar
+s-E_c\big)=|w(x,\chi)|^2. \tag{1}\]</span></p>
+<p><strong>Closed-form chart.</strong> Substituting <span
+class="math inline">\(c=\cosh 2\lambda\)</span>, Eq. (1) is
+<em>linear</em> in <span class="math inline">\(c\)</span> for <span
+class="math inline">\(\kappa_A=0\)</span>, <span
+class="math display">\[c(x)=\frac{a\,B_1-\omega^2 P}{a\,K+\omega^2
+R},\qquad a=\varepsilon_A x-E_c,\;K=2\kappa_B x(1-x),\;B_1=V_B+\bar
+s-E_c-K,\]</span> and <em>quadratic</em> for <span
+class="math inline">\(\kappa_A&gt;0\)</span>: <span
+class="math inline">\(K_AK_B\,c^2-(A_1K_B+B_1K_A+\omega^2R)\,c+(A_1B_1-\omega^2P)=0\)</span>.
+The physical branch is <strong>derived, not chosen</strong>: the
+lower-sheet condition <span class="math inline">\(a+b&gt;0\)</span>
+forces the smaller root (at the value <span
+class="math inline">\(c_*\)</span> where <span
+class="math inline">\(a+b=0\)</span> one has <span
+class="math inline">\(ab=-a^2&lt;|w|^2\)</span>, so the quadratic is
+negative there and <span class="math inline">\(c_*\)</span> separates
+the roots). Boundary data are exact: <span
+class="math inline">\(h_A(0)=0\)</span> gives <span
+class="math inline">\(E_{\rm left}(\bar s)=\tfrac{\bar
+s}{2}-\sqrt{\tfrac{\bar s^2}{4}+\omega^2}\)</span> in closed form.</p>
+<p><strong>Self-protection lemma.</strong> Since <span
+class="math inline">\(E_c\)</span> is <em>defined</em> as the global
+minimum of the dressed lower sheet, the real-section discriminant of (1)
+is nonnegative everywhere: open classically allowed pockets cannot occur
+at the gap-min energy. They arise only for excited crossings, delimiting
+the law’s stated scope.</p>
+<p><strong>Chart versus invariant.</strong> Evaluating the coupling at
+its diagonal value (<span
+class="math inline">\(|w|^2\to\omega^2\)</span>) defines the naive chart
+<span class="math inline">\(S_{\rm const}\)</span>. Measurement
+falsifies it; the invariant formulation <em>requires</em> that
+falsification, since <span class="math inline">\(\omega^2\)</span> is
+not the gauge-invariant coupling. The surviving chart <span
+class="math inline">\(S_{\rm corr}\)</span>, Eq. (1) with the full <span
+class="math inline">\(\cosh\)</span> structure, is what every
+certification below tests.</p>
+<h2 id="proven-results">3. Proven results</h2>
+<p><strong>Theorem 1 (EP–fidelity lock).</strong> In the <span
+class="math inline">\(2\times2\)</span> reduction at the crossing, the
+complexified degeneracies sit at <span
+class="math inline">\(z_\pm=s_*\pm 2i w/\delta\)</span> and the peak
+fidelity susceptibility obeys <span
+class="math inline">\(4\chi_F^{\max}\,(\mathrm{Im}\,z_{\rm
+EP})^2=1\)</span> exactly; deviations in the full model are controlled
+by a Feshbach transfer bound and certified to <span
+class="math inline">\(10^{-6}\)</span>. This is the Hermitian-family
+cousin of relations long discussed for non-Hermitian EP sensing [12–16];
+we use it only as the lock binding the observable class <span
+class="math inline">\(\{\mathrm{gap},\,\mathrm{Im}\,z_{\rm
+EP},\,(4\chi_F^{\max})^{-1/2},\,r_{\rm SW}\}\)</span> to a common
+exponent, not as a contribution to that debate.</p>
+<p><strong>Theorem 2 (exact anchor).</strong> In the solvable case
+(<span class="math inline">\(\varepsilon=0,\kappa_B=1,g_i=0\)</span>)
+the direct coupling admits the closed form <span
+class="math inline">\(w_{\rm
+direct}=2\sqrt2\,\omega\sqrt{(N{+}1)(N{+}2)}\;2^{-(N+2)/2}\)</span>;
+certified to relative error <span
+class="math inline">\(1.3\times10^{-15}\)</span>.</p>
+<p><strong>Theorem 3 (Agmon law for the matrix element).</strong> Under
+(H1) <span class="math inline">\(\kappa_B&gt;0\)</span>, (H2) a unique
+nondegenerate interior minimum <span class="math inline">\(x_*\)</span>
+of <span class="math inline">\(f=V_B-4\kappa_Bx(1-x)\)</span>, (H3)
+<span class="math inline">\(f&gt;E_0\)</span> elsewhere, <span
+class="math display">\[-\tfrac1M\log\!\big(w_{\rm direct}/\omega
+M\big)\;\longrightarrow\;S_{\rm
+Agmon}=\tfrac12\int_0^{x_*}\!\operatorname{arccosh}\frac{f(x)-E_0}{2\kappa_Bx(1-x)}\,dx,\]</span>
+with error <span class="math inline">\(\mathcal{O}(M^{2/3})\)</span> in
+the logarithm. The proof is elementary and fully discrete:
+Perron–Frobenius positivity of the gauged chain, Gershgorin energy
+bounds, a concentration estimate, a two-sided Riccati sandwich <span
+class="math inline">\(e^{\theta-\mu}\le R_j\le e^{\theta+\mu}\)</span>
+with a contracting error recursion, and an exact boundary-layer
+treatment. <span class="math inline">\(S_{\rm
+Agmon}=\mathcal{S}|_{\omega\to0}\)</span>: the matrix element and the
+spectral scales form two classes joined at the weak-coupling limit.</p>
+<h2 id="certification-protocol-and-results-for-the-spectral-law">4.
+Certification protocol and results for the spectral law</h2>
+<p><em>Certified</em> means, throughout: the closed-form prediction is
+computed and locked <strong>before</strong> measurement; gaps are
+obtained by banded <span class="math inline">\(LDL^\top\)</span> inertia
+bisection in adaptive multiprecision (working precision scaled to <span
+class="math inline">\(\mathcal{S}N\)</span>), cross-validated against
+double precision wherever both apply, with any single cross-check
+failure blocking the series; local slopes <span
+class="math inline">\(\Gamma_{\rm loc}(N)\)</span> on <span
+class="math inline">\(N=64\ldots280\)</span> are extrapolated by two
+independent models, <span class="math inline">\(G+b/N\)</span> and <span
+class="math inline">\(G+b/N+c\ln N/N\)</span>, whose pair must
+<strong>bracket</strong> the prediction.</p>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Configuration</th>
+<th>Prediction <span class="math inline">\(\mathcal{S}\)</span></th>
+<th>Result</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>C1 (<span
+class="math inline">\(\varepsilon{=}0,\kappa_B{=}1\)</span>), <span
+class="math inline">\(\omega{=}0.2\)</span></td>
+<td>0.25179</td>
+<td>bracketed; <span
+class="math inline">\(|\Delta|\le4\times10^{-4}\)</span> class</td>
+</tr>
+<tr class="even">
+<td>C3 (<span
+class="math inline">\(\varepsilon{=}-0.2,g_2{=}2\)</span>), <span
+class="math inline">\(\omega{=}0.1\)</span></td>
+<td>0.20305</td>
+<td>bracketed; same class</td>
+</tr>
+<tr class="odd">
+<td><strong>C4 blind</strong> (<span
+class="math inline">\(\varepsilon{=}-0.5,g_2{=}3,\kappa_B{=}0.8\)</span>),
+<span class="math inline">\(\omega{=}0.13/0.05\)</span></td>
+<td>0.15013 / 0.19505</td>
+<td><span class="math inline">\(|\Delta|=1\times10^{-5}\)</span> / <span
+class="math inline">\(2.2\times10^{-4}\)</span></td>
+</tr>
+<tr class="even">
+<td>Dynamical <span class="math inline">\(A\)</span> (<span
+class="math inline">\(\kappa_A{=}0.2\)</span>; quadratic branch
+rule)</td>
+<td>0.09308</td>
+<td>bracket <span class="math inline">\([0.09205,0.09383]\)</span>,
+<span class="math inline">\(|\Delta|=1.4\times10^{-4}\)</span></td>
+</tr>
+<tr class="odd">
+<td>Quartic dip landscape, <span
+class="math inline">\(\omega{=}0.08\)</span></td>
+<td>0.45514</td>
+<td><span class="math inline">\(|\Delta|=1.8\times10^{-4}\)</span>; the
+sub-degenerate dip is a spectator</td>
+</tr>
+</tbody>
+</table>
+<p>Configuration C4 was constructed adversarially (first <span
+class="math inline">\(\kappa_B\neq1\)</span>, new landscape, new
+couplings) after the formula was frozen; its agreement at <span
+class="math inline">\(10^{-5}\)</span> is the strongest single datum. A
+five-attack falsification battery — estimator closure against the
+independently measured quantum crossing slope (<span
+class="math inline">\(|\Delta|\le2.2\times10^{-4}\)</span>),
+prefactor-chart covariance (<span
+class="math inline">\(\Gamma_\infty\)</span> spread <span
+class="math inline">\(\le8\times10^{-5}\)</span> with <span
+class="math inline">\(b\)</span> shifting by exactly one unit per power
+of <span class="math inline">\(N\)</span>), window-split extrapolation,
+pipeline-branch cross-validation, and the blind test — was executed in
+full; all five attacks failed to break the law.</p>
+<p>The finite-size flow obeys <span class="math inline">\(d\Gamma/d\ln
+N=-(\Gamma-\mathcal{S})\)</span>: a line of fixed points with
+correction-to-scaling eigenvalue <span class="math inline">\(-1\)</span>
+and a non-universal amplitude <span
+class="math inline">\(b\in[0.24,0.44]\)</span> flowing with <span
+class="math inline">\(\omega\)</span> — the descendant of the LMG
+discreteness correction [5], whose first-principles derivation we leave
+open.</p>
+<h2 id="the-instanton-minimum-rule">5. The instanton minimum rule</h2>
+<p>Degenerate landscapes are where naive semiclassics fails first; we
+engineered them deliberately, in a quartic family <span
+class="math inline">\(f&#39;(x)\propto(x-r_1)(x-r_b)(x-r_2)\)</span>
+with exactly degenerate wells, and pre-registered each layer.</p>
+<p><strong>Layer 1 — generic degeneracy.</strong> The coupling itself
+lifts classical degeneracy: level repulsion <span
+class="math inline">\(\sim\omega^2/\Delta h\)</span> differs between
+wells, detuning the dressed minima <em>extensively</em>. The blind
+construction selects the favored well (<span
+class="math inline">\(S_{\rm sel}=0.27997\)</span> vs alternative <span
+class="math inline">\(0.41920\)</span>); direct spectroscopy confirms
+the predicted architecture — a single ground anticrossing carrying the
+selected well’s character (<span class="math inline">\(\langle
+x\rangle_B=0.266\)</span>), the alternative exiled to the excited gap
+(<span class="math inline">\(\langle x\rangle_B=0.627\)</span>) on the
+predicted side; measured exponent <span
+class="math inline">\(0.27680\)</span>.</p>
+<p><strong>Layer 2 — classically tuned degeneracy.</strong> Cancelling
+the repulsion detuning by a calibrated tilt leaves an <span
+class="math inline">\(\mathcal{O}(1)\)</span> zero-point detuning,
+<em>measured</em> to be <span class="math inline">\(0.41\)</span> and
+independent of <span class="math inline">\(M\)</span> across three
+sizes. The gap-min remains a clean two-level anticrossing: measured
+<span class="math inline">\(0.27369\)</span> on <span
+class="math inline">\(S_1=0.28068\)</span>.</p>
+<p><strong>Layer 3 — quantum-tuned degeneracy.</strong> Tuning per <span
+class="math inline">\(N\)</span> realizes the genuine merged three-level
+point. The crossing doublet hybridizes symmetrically (<span
+class="math inline">\(\langle x\rangle_B=0.462\)</span>, the well
+midpoint); Perron–Frobenius positivity makes the two well-couplings
+<em>add</em>, forbidding destructive interference; on the co-moving
+resonance manifold the local exponent rises cleanly into the predicted
+band, <span class="math inline">\(0.27975\to0.28496\)</span> against
+<span class="math inline">\(S_1\in[0.28424,0.28564]\)</span>. The merger
+floor itself is a measurement: the anticrossings cannot approach closer
+than twice the inter-well tunneling amplitude, and the floor’s decay
+rate <span class="math inline">\(0.115\)</span> matches the
+independently estimated in-barrier action <span
+class="math inline">\(0.106\)</span>.</p>
+<p><strong>Result.</strong> <span
+class="math inline">\(\Gamma=\min(S_1,S_2)\)</span> at every layer of
+fine-tuning; only the spectral architecture reorganizes. A
+methodological corollary, learned from a transient <span
+class="math inline">\(+0.037\)</span> exponent anomaly later dissected
+as an artifact: resonance manifolds that drift with <span
+class="math inline">\(N\)</span> must be tracked with co-moving tuning,
+as fixed-parameter windows sweep through resonance and contaminate
+fits.</p>
+<h2 id="toward-a-proof-exact-reduction-to-a-scalar-double-well">6.
+Toward a proof: exact reduction to a scalar double well</h2>
+<p>For <span class="math inline">\(\kappa_A=0\)</span> the <span
+class="math inline">\(A\)</span>-sector amplitude is exactly slaved,
+<span
+class="math inline">\(\psi_A(n)=[w_1\psi_B(n)+w_2\psi_B(n{+}2)]/(d_A(n)-E)\)</span>,
+with denominator uniformly positive near the crossing. Feshbach
+elimination is therefore exact and local, collapsing the problem to a
+<strong>scalar Jacobi chain</strong> for <span
+class="math inline">\(\psi_B\)</span>; since <span
+class="math inline">\((H-E)\)</span> in the <span
+class="math inline">\(\mathbb{Z}_2\)</span>-gauged basis is an M-matrix
+below the crossing and Schur complements of M-matrices are M-matrices,
+the effective chain inherits sign-definite hops and Perron–Frobenius
+structure automatically. Two exact identities anchor the reduction.
+First, the effective chain’s forbidden-region decay condition reproduces
+<span class="math inline">\(\omega^2[P+R\cosh2\lambda]/a\)</span> —
+<strong>the certified quadrature is the literal symbol of the effective
+scalar operator.</strong> Second, the dressed boundary value <span
+class="math inline">\(f_{\rm eff}(0)=h_B(0)+\bar
+s-\omega^2/(h_A(0)-E_c)=E_c\)</span> exactly, by the degeneracy relation
+<span class="math inline">\(E_c^2-\bar sE_c-\omega^2=0\)</span>: the
+eliminated <span class="math inline">\(A\)</span>-branch reappears as a
+boundary half-well at precisely the crossing energy. The two-sector gap
+problem <em>is</em> a scalar double-well tunneling problem.</p>
+<p>The remaining program is then standard-adjacent: (i) the Riccati
+sandwich of Theorem 3 transfers to the effective chain, with the energy
+dependence of its coefficients pinned to an exponentially small
+self-consistency window; (ii) the genuinely new estimate is a threshold
+boundary-well lemma at <span class="math inline">\(x=0\)</span>; (iii)
+the final gap formula follows from a Helffer–Sjöstrand interaction
+matrix on the scalar double well — exactly the step where the
+predissociation-school machinery [7–10] applies, transplanted from
+width-at-crossing to gap-at-degeneracy geometry. For <span
+class="math inline">\(\kappa_A&gt;0\)</span> the Schur complement
+remains well defined with Combes–Thomas [17] exponential off-diagonal
+decay, and the same architecture applies with a long-range-tolerant
+sandwich. We state this as a skeleton with named gaps, not a
+theorem.</p>
+<h2 id="discussion">7. Discussion</h2>
+<p><strong>Relation to prior art.</strong> Within one sector,
+exponentially small splittings are LMG-classical [4,5]; in the
+continuum, lower-sheet Agmon exponents for <span
+class="math inline">\(2\times2\)</span> systems are proven theorems of
+predissociation theory [7–10], including pseudodifferential couplings.
+Our setting — coexistence of two confining configurations at tuned
+degeneracy, on a discrete Fock chain, with the certified collapse of
+spectral, exceptional-point, and metrological scales into one number,
+and an established selection rule under engineered degeneracy — is
+addressed by neither, while inheriting tools from both. We regard the
+present law as the configuration-coexistence realization of that circle
+of ideas, and Sec. 6 as the bridge by which its proof should be
+completed.</p>
+<p><strong>Experimental relevance.</strong> The model class is directly
+realizable in two-mode bosonic platforms (double-well or two-component
+condensates, circuit-QED Kerr resonator pairs) where both the gap and
+parametric susceptibility are measurable; the one-exponent collapse
+predicts that independently measured sensitivity and splitting must
+agree at exponential accuracy.</p>
+<p><strong>Limitations, stated plainly.</strong> The spectral law is
+certified, not proven; Theorem 3 is the sole proven pillar of its
+mechanism. The model class is minimal — one algebra family, one coupling
+operator, even-parity sector — and the distance to the many-body
+problems that motivate it [3] remains large. One reproducibility flag
+from the verification campaign (a single scratch evaluation discrepant
+with two agreeing production runs) remains open and is disclosed in the
+archive. Open problems: completion of the proof along Sec. 6;
+first-principles derivation of <span
+class="math inline">\(b(\omega)\)</span>, for which the measured
+zero-point offset (<span class="math inline">\(0.41\)</span>) and
+inter-well action (<span class="math inline">\(0.115\)</span>) are
+calibration data; the barrier-washout boundary <span
+class="math inline">\(\omega\to\omega_c\)</span>; and structural
+extension beyond <span class="math inline">\(\mathfrak{su}(2)\)</span>
+sectors.</p>
+<hr />
+<p><strong>Data and code availability.</strong> All certified numbers
+are reproducible from a single canonical module
+(<code>pipeline.py</code>) in the program archive, together with seven
+research documents, twelve drivers, and the complete falsification
+record, including the failures.</p>
+<p><strong>Acknowledgments and AI disclosure.</strong> This research
+program was conducted in an adversarial human–AI collaboration with
+Claude Fable 5 (Anthropic), which contributed derivations, proofs, all
+numerical pipelines, falsification design, and manuscript drafting under
+the author’s direction; in accordance with publisher policies on
+authorship and accountability, it is not listed as an author. Every
+analytical and numerical claim was verified within the program’s
+pre-registration protocol; the author takes full responsibility for the
+content.</p>
+<h2 id="references">References</h2>
+<p>[1] H. J. Lipkin, N. Meshkov, A. J. Glick, <em>Nucl. Phys.</em>
+<strong>62</strong>, 188 (1965). [2] K. Heyde, J. L. Wood, <em>Rev. Mod.
+Phys.</em> <strong>83</strong>, 1467 (2011). [3] B. Simon, <em>J. Math.
+Phys.</em> <strong>41</strong>, 3523 (2000). [4] Finite-size LMG
+symmetry breaking and the exponentially small gap, arXiv:1709.07657,
+Appendix A, and references therein. [5] Instanton analysis of spin
+tunneling in the Lipkin model, arXiv:cond-mat/0102073, and the 1997
+instanton literature cited therein. [6] B. Helffer, J. Sjöstrand,
+<em>Comm. Part. Diff. Eq.</em> <strong>9</strong>, 337 (1984). [7] M.
+Klein, <em>Ann. Phys.</em> <strong>178</strong>, 48 (1987). [8] A.
+Grigis, A. Martinez, <em>Anal. PDE</em> <strong>7</strong>, 1027 (2014);
+arXiv:1205.5196. [9] S. Fujiié, A. Martinez, T. Watanabe, <em>J. Diff.
+Eq.</em> <strong>260</strong>, 4051 (2016); <strong>262</strong>, 5880
+(2017). [10] S. Ashida, <em>Asymptot. Anal.</em> (2018);
+arXiv:1707.07963. [11] S. Agmon, <em>Lectures on Exponential Decay of
+Solutions of Second-Order Elliptic Equations</em> (Princeton, 1982).
+[12] W. D. Heiss, <em>J. Phys. A</em> <strong>45</strong>, 444016
+(2012). [13] J. Wiersig, <em>Phys. Rev. Lett.</em> <strong>112</strong>,
+203901 (2014). [14] D. Anderson, M. Shah, L. Fan, <em>Phys.
+Rev. Applied</em> <strong>19</strong>, 034059 (2023). [15] Scaling of
+quantum Fisher information for quantum exceptional-point sensors,
+arXiv:2404.03803. [16] Fundamental limits of non-Hermitian sensing from
+quantum Fisher information, arXiv:2603.10614 (2026). [17] J. M. Combes,
+L. Thomas, <em>Comm. Math. Phys.</em> <strong>34</strong>, 251
+(1973).</p>
+<p><em>Draft note: bracketed-author references [4,5,15,16] to be
+completed with full author lists at final verification; one further
+literature pass (Hagedorn–Joye adiabatic asymptotics; IBM
+configuration-mixing numerics) is scheduled before submission.</em></p>
+</main>
+<p class="render-note">Math rendered with MathJax. This page renders identically on desktop, mobile browsers, and GitHub Pages.</p>
+</div>
+</body>
+</html>
