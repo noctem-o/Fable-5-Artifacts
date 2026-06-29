@@ -4,7 +4,7 @@ Central result: for two-sector bosonic configuration crossings, ALL exponentiall
 2x2 matrix symbol's lower sheet at double degeneracy, condition (h_A - E_c)(h_B - E_c) = |w(x,chi)|^2.
 S_corr is a Darboux-chart evaluation of this invariant, not fundamental.
 
-https://github.com/noctem-o/One-Exponent-Program_Fable-5/blob/main/one-exponent-manuscript.md
+Paper: https://github.com/noctem-o/One-Exponent-Program_Fable-5/blob/136e3535934128ebd69def8cbad3ea2ea4382514/manuscript-pdf.pdf
 
 ## Status ledger
 | Claim | Status | Key evidence | Where |
